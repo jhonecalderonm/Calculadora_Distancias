@@ -1,1 +1,81 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Alma</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+       <h2>Bienvenidos a </h2> 
+       <h1>ALMA</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('calculator')">Calculadora Basica</button>
+            <button class="tab-button" onclick="showTab('distance')">Calcular Distancia</button>
+            <button class="tab-button" onclick="showTab('polynomial')">Calcular Raíces de un Polinomio</button>
+        </div>
+
+        <!-- Calculadora -->
+        <div id="calculator" class="tab active">
+            <input type="text" id="calc-display" disabled />
+            <div class="button-grid">
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('+')">+</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('*')">*</button>
+                <button class="clear" onclick="clearDisplay()">C</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button class="equals" onclick="calculateResult()">=</button>
+                <button onclick="appendToDisplay('/')">/</button>
+            </div>
+        </div>
+
+        <!-- Calcular Distancia -->
+        <div id="distance" class="tab">
+            <h2>Calcular Distancia entre dos puntos en un Plano</h2>
+            <input type="number" id="x1" placeholder="X1" />
+            <input type="number" id="y1" placeholder="Y1" />
+            <input type="number" id="x2" placeholder="X2" />
+            <input type="number" id="y2" placeholder="Y2" />
+            <select id="unit">
+                <option value="meters">Metros</option>
+                <option value="kilometers">Kilómetros</option>
+                <option value="miles">Millas</option>
+            </select>
+            <button onclick="calculateDistance()">Calcular Distancia</button>
+            <div id="distance-result"></div>
+        </div>
+
+        <!-- Calcular Raíces de Polinomios -->
+        <div id="polynomial" class="tab">
+            <h2>Calcular Raíces de Polinomios de Grado Cuatro por Biseccion</h2>
+            <h3>Coeficientes</h3>
+            <input type="number" id="a" placeholder="a (x^4)" />
+            <input type="number" id="b" placeholder="b (x^3)" />
+            <input type="number" id="c" placeholder="c (x^2)" />
+            <input type="number" id="d" placeholder="d (x^1)" />
+            <input type="number" id="e" placeholder="e (constante)" />
+            <h3>Límites y Tolerancia</h3>
+            <input type="number" id="lower-limit" placeholder="Límite Inferior" />
+            <input type="number" id="upper-limit" placeholder="Límite Superior" />
+            <input type="number" id="tolerance" placeholder="Tolerancia" />
+            <button onclick="calculateRoots()">Calcular Raíces</button>
+            <div id="roots-result"></div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
